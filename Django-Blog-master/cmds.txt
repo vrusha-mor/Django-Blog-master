@@ -1,0 +1,50 @@
+pip install django==2.2.7
+pip install django-crispy-forms
+pip install pillow
+pip install crispy-bootstrap4
+
+django-admin startproject mysite
+python manage.py startapp home
+
+python manage.py runserver
+
+python manage.py shell
+	from django.contrib.auth.models import User
+	User.objects.get(username="YOUR_USERNAME").delete()
+
+	from django.contrib.auth.models import User
+	User.objects.all()                                                             // displays all users
+
+	from blog.models import Post
+	Post.objects.all()                                                     // shows all saved post in the db
+
+from django.contrib.auth.models import User
+from blog.models import Post
+
+user = User.objects.get(username="Keval")
+Post.objects.filter(author=user).delete()    // want to delete a post by particular user
+
+	from blog.models import Post
+from django.contrib.auth.models import User
+
+# List all posts
+for post in Post.objects.all():
+    print(post.id, post.title, post.author.username, post.date_posted)
+
+# List all users
+for user in User.objects.all():
+    print(user.id, user.username, user.email)                                            //This lets you query and inspect data directly.
+
+sqlite3 db.sqlite3
+
+.tables                -- lists all tables
+SELECT * FROM blog_post; -- see all blog posts
+SELECT * FROM auth_user; -- see all users
+.quit                   -- exit
+
+
+
+
+
+
+
